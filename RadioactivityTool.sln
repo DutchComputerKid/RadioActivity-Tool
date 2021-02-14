@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RadioactivityTool", "RadioactivityTool\RadioactivityTool.csproj", "{2959AC55-9147-45C0-8DC5-5D05F5D571CC}"
 EndProject
-Project("{B900F1C2-3D47-4FEC-85B3-04AAF18C3634}") = "RadioActivity-CAB", "..\RadioActivity-CAB\RadioActivity-CAB\RadioActivity-CAB.vddproj", "{F86FFB6D-7CBA-4375-AB55-7582D1E3CE5B}"
+Project("{B900F1C2-3D47-4FEC-85B3-04AAF18C3634}") = "RadioActivity-CAB", "RadioActivity-CAB\RadioActivity-CAB\RadioActivity-CAB.vddproj", "{F86FFB6D-7CBA-4375-AB55-7582D1E3CE5B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
