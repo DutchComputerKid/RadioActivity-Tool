@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{B900F1C2-3D47-4FEC-85B3-04AAF18C3634}") = "RadioActivity-CAB", "RadioActivity-CAB\RadioActivity-CAB.vddproj", "{FF0831C7-05CB-4CA0-AE97-FCC6436532D3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FF0831C7-05CB-4CA0-AE97-FCC6436532D3}.Debug|Default.ActiveCfg = Debug
+		{FF0831C7-05CB-4CA0-AE97-FCC6436532D3}.Debug|Default.Build.0 = Debug
+		{FF0831C7-05CB-4CA0-AE97-FCC6436532D3}.Release|Default.ActiveCfg = Release
+		{FF0831C7-05CB-4CA0-AE97-FCC6436532D3}.Release|Default.Build.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
