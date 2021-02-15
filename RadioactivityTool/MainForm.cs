@@ -23,6 +23,7 @@ namespace RadioactivityTool
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            MainInfoLabel.Text = MainInfoLabel.Text + "\n Version: " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
             // Any requirements if needed
             // Done setting up the form
         }

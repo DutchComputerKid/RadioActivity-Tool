@@ -16,5 +16,7 @@ Included in the repo are the redistributables for Windows Mobile and Windows CE.
 
 To install, first install the redistributable for your device, then install the RadioActivity-CAB.cab file. Transfer it to your PDA and open in Explorer. Done!
 
-
+Note: For Pocket PC 2003 and lower, you may require the Messages redistributable. This is also in the redistributables folder.
+These are in various languages, and wm stands for Windows Mobile. Older devices will need the non-wm cab file. 
+More information will pop up in the requirements error upon install.
 

@@ -6,3 +6,11 @@ C:\Users\Quintus\Documents\Visual Studio 2008\Projects\RadioactivityTool\Radioac
 C:\Users\Quintus\Documents\Visual Studio 2008\Projects\RadioactivityTool\RadioactivityTool\bin\Debug\RadioactivityTool.pdb
 C:\Users\Quintus\Documents\Visual Studio 2008\Projects\RadioactivityTool\RadioactivityTool\obj\Debug\RadioactivityTool.exe
 C:\Users\Quintus\Documents\Visual Studio 2008\Projects\RadioactivityTool\RadioactivityTool\obj\Debug\RadioactivityTool.pdb
+C:\Users\Quintus\Documents\GitHub\RadioActivity-Tool\RadioactivityTool\bin\Debug\RadioactivityTool.exe
+C:\Users\Quintus\Documents\GitHub\RadioActivity-Tool\RadioactivityTool\bin\Debug\RadioactivityTool.pdb
+C:\Users\Quintus\Documents\GitHub\RadioActivity-Tool\RadioactivityTool\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Quintus\Documents\GitHub\RadioActivity-Tool\RadioactivityTool\obj\Debug\RadioactivityTool.EffectInfo.resources
+C:\Users\Quintus\Documents\GitHub\RadioActivity-Tool\RadioactivityTool\obj\Debug\RadioactivityTool.Properties.Resources.resources
+C:\Users\Quintus\Documents\GitHub\RadioActivity-Tool\RadioactivityTool\obj\Debug\RadioactivityTool.csproj.GenerateResource.Cache
+C:\Users\Quintus\Documents\GitHub\RadioActivity-Tool\RadioactivityTool\obj\Debug\RadioactivityTool.exe
+C:\Users\Quintus\Documents\GitHub\RadioActivity-Tool\RadioactivityTool\obj\Debug\RadioactivityTool.pdb

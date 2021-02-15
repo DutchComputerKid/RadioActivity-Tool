@@ -31,6 +31,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EffectInfo));
             this.mainMenu1 = new System.Windows.Forms.MainMenu();
+            this.menuItem1 = new System.Windows.Forms.MenuItem();
+            this.ExitButton = new System.Windows.Forms.MenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -65,8 +67,6 @@
             this.GitHub = new System.Windows.Forms.LinkLabel();
             this.UNCLabel = new System.Windows.Forms.LinkLabel();
             this.UNCLogo = new System.Windows.Forms.PictureBox();
-            this.menuItem1 = new System.Windows.Forms.MenuItem();
-            this.ExitButton = new System.Windows.Forms.MenuItem();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -81,6 +81,16 @@
             // mainMenu1
             // 
             this.mainMenu1.MenuItems.Add(this.menuItem1);
+            // 
+            // menuItem1
+            // 
+            this.menuItem1.MenuItems.Add(this.ExitButton);
+            this.menuItem1.Text = "Menu";
+            // 
+            // ExitButton
+            // 
+            this.ExitButton.Text = "Exit";
+            this.ExitButton.Click += new System.EventHandler(this.ExitButton_Click);
             // 
             // tabControl1
             // 
@@ -182,7 +192,7 @@
             // 
             this.InputUpDownBox.Location = new System.Drawing.Point(75, 57);
             this.InputUpDownBox.Maximum = new decimal(new int[] {
-            9999999,
+            9999,
             0,
             0,
             0});
@@ -332,7 +342,7 @@
             this.tabPage3.Controls.Add(this.AboutPanel);
             this.tabPage3.Location = new System.Drawing.Point(0, 0);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(232, 242);
+            this.tabPage3.Size = new System.Drawing.Size(240, 245);
             this.tabPage3.Text = "About";
             // 
             // AboutPanel
@@ -384,16 +394,6 @@
             this.UNCLogo.Name = "UNCLogo";
             this.UNCLogo.Size = new System.Drawing.Size(105, 107);
             this.UNCLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            // 
-            // menuItem1
-            // 
-            this.menuItem1.MenuItems.Add(this.ExitButton);
-            this.menuItem1.Text = "Menu";
-            // 
-            // ExitButton
-            // 
-            this.ExitButton.Text = "Exit";
-            this.ExitButton.Click += new System.EventHandler(this.ExitButton_Click);
             // 
             // EffectInfo
             // 
