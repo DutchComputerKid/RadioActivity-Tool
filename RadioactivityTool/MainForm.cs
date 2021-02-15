@@ -1,4 +1,6 @@
-﻿using System;
+﻿// RadioActivity-Tool by Quintus Snitjer.
+// Built with Visual Studio 2008 + .NET Compact 3.5
+using System;
 using System.Linq;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,6 +18,8 @@ namespace RadioactivityTool
         public Double MultiplicationEffectNumber;
         public String DoseEffect;
         public Double GrayValue;
+        public IDictionary<double, string> dict = new Dictionary<double, string>();
+        //public Dictionary<double, string> {get dict1; set dict1 = ValueType; }
         public EffectInfo()
         {
             InitializeComponent();
@@ -23,14 +27,7 @@ namespace RadioactivityTool
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            MainInfoLabel.Text = MainInfoLabel.Text + "\n Version: " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
-            // Any requirements if needed
-            // Done setting up the form
-        }
-        public void LoadDamages(double RadiationDoseInput, string DoseEffect)
-        {
-            // Create dictionairy with mSv values. 31 positions total.
-            IDictionary<double, string> dict = new Dictionary<double, string>();
+            // Create dictionairy with mSv values. 31 positions total.         
             // Insert data into the dictionairy.
             dict.Add(0.1, "Instant Exposure: Eating a banana.");
             dict.Add(0.25, "Instant Exposure: Maximum allowed at a security scan.");
@@ -63,10 +60,16 @@ namespace RadioactivityTool
             dict.Add(30000000, "After 1 day: Seizures & tremors.Death within 48 hours.");
             dict.Add(50000000, "10 mins after the exposure to the Chernobyl reactor core after meltdown.");
             dict.Add(932966366, "After 1 hour: Exposure to The Elephant's Foot. The most radioactive substance known to mankind. Created by the meltdown of Chernobyl.");
-
+            // Acknoledge version number in About.
+            MainInfoLabel.Text = MainInfoLabel.Text + "\n Version: " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
+            // Any requirements if needed
+            // Done setting up the form
+        }
+        public void LoadDamages(double RadiationDoseInput, string DoseEffect)
+        {
             // Determine closest match of the dictionairy by key.
             // e is the effect string.
-            var bestMatch = dict.OrderBy(e => Math.Abs(e.Key - RadiationDoseInput)).FirstOrDefault();
+            var bestMatch = this.dict.OrderBy(e => Math.Abs(e.Key - RadiationDoseInput)).FirstOrDefault();
             Console.WriteLine("Input: " + RadiationDoseInput + " // Closest result: " + bestMatch);
             // Display result in the GUI
             EffectBox.Text = bestMatch.Value;
@@ -82,78 +85,74 @@ namespace RadioactivityTool
         {
             // NOTE: INPUT MUST ALWAYS BE CONVERTED TO MICROSIEVERTS.
             // Return given value and turn it into mSv for determination.
-            if (this.SelectedRadiationType == "Sievert") // Run this part only if the given dose is Sievert.
+
+            switch (SelectedRadiationType)
             {
-                if (comboboxDose.GetItemText(comboboxDose.SelectedItem) == "Micro") // No conversion needed for determination.
-                {
-                    LoadDamages((double)InputUpDownBox.Value, ""); // In this part, Micro is the wanted value. Thus the further we go, we need to multiply.
-                }
-                if (comboboxDose.GetItemText(comboboxDose.SelectedItem) == "Milli")
-                {
-                    LoadDamages((1000 * (double)InputUpDownBox.Value), ""); // Increment input from here by 10.                  
-                }
-                if (comboboxDose.GetItemText(comboboxDose.SelectedItem) == "Centi")
-                {
-                    LoadDamages((10000 * (double)InputUpDownBox.Value), "");
-                }
-                if (comboboxDose.GetItemText(comboboxDose.SelectedItem) == "Deci")
-                {
-                    LoadDamages((100000 * (double)InputUpDownBox.Value), "");
-                }
-                if (comboboxDose.GetItemText(comboboxDose.SelectedItem) == "Absolute")
-                {
-                    LoadDamages((1000000 * (double)InputUpDownBox.Value), "");
-                }
-            }
-            if (this.SelectedRadiationType == "Gray")
-            { // Do the same as above, just with different inputs.
-
-                if (comboboxDose.GetItemText(comboboxDose.SelectedItem) == "Micro") // No conversion needed for determination.
-                {
-                    LoadDamages(DamagesDicInput, ""); // In this part, Micro is the wanted value. Thus the further we go, we need to multiply.
-                }
-                if (comboboxDose.GetItemText(comboboxDose.SelectedItem) == "Milli")
-                {
-                    LoadDamages(1000 * DamagesDicInput, ""); // Increment input from here by 10.                  
-                }
-                if (comboboxDose.GetItemText(comboboxDose.SelectedItem) == "Centi")
-                {
-                    LoadDamages((10000 * DamagesDicInput), "");
-                }
-                if (comboboxDose.GetItemText(comboboxDose.SelectedItem) == "Deci")
-                {
-                    LoadDamages((100000 * DamagesDicInput), "");
-                }
-                if (comboboxDose.GetItemText(comboboxDose.SelectedItem) == "Absolute")
-                {
-                    LoadDamages((1000000 * DamagesDicInput), "");
-                }
-            }
-            if (this.SelectedRadiationType == "Roentgen")
-            {  // Do the same as above, just with different inputs.
-                // Thus, the function BeginCalculations first starts to convert to Sieverts, multiply it by its atom type, then return it here.
-
-                if (comboboxDose.GetItemText(comboboxDose.SelectedItem) == "Micro") // No conversion needed for determination.
-                {
-                    LoadDamages(DamagesDicInput, ""); // In this part, Micro is the wanted value. Thus the further we go, we need to multiply.
-                }
-                if (comboboxDose.GetItemText(comboboxDose.SelectedItem) == "Milli")
-                {
-                    LoadDamages(1000 * DamagesDicInput, ""); // Increment input from here by 10.                  
-                }
-                if (comboboxDose.GetItemText(comboboxDose.SelectedItem) == "Centi")
-                {
-                    LoadDamages((10000 * DamagesDicInput), "");
-                }
-                if (comboboxDose.GetItemText(comboboxDose.SelectedItem) == "Deci")
-                {
-                    LoadDamages((100000 * DamagesDicInput), "");
-                }
-                if (comboboxDose.GetItemText(comboboxDose.SelectedItem) == "Absolute")
-                {
-                    LoadDamages((1000000 * DamagesDicInput), "");
-                }
-            }
+                case "Sievert":
+                    // Switch/case for improves efficiency.
+                    switch (comboboxDose.GetItemText(comboboxDose.SelectedItem))
+                    {
+                        case "Micro":
+                            LoadDamages((double)InputUpDownBox.Value, ""); // In this part, Micro is the wanted value. Thus the further we go, we need to multiply.
+                            break;
+                        case "Milli":
+                            LoadDamages((1000 * (double)InputUpDownBox.Value), ""); // Increment input from here by 10. 
+                            break;
+                        case "Centi":
+                            LoadDamages((10000 * (double)InputUpDownBox.Value), "");
+                            break;
+                        case "Deci":
+                            LoadDamages((100000 * (double)InputUpDownBox.Value), "");
+                            break;
+                        case "Absolute":
+                            LoadDamages((1000000 * (double)InputUpDownBox.Value), "");
+                            break;
+                    }
+                    break;
+                case "Gray":
+                    // Gray's table is not really any different.
+                    switch (comboboxDose.GetItemText(comboboxDose.SelectedItem))
+                    {
+                        case "Micro":
+                            LoadDamages(DamagesDicInput, ""); 
+                            break;
+                        case "Milli":
+                            LoadDamages(1000 * DamagesDicInput, ""); 
+                            break;
+                        case "Centi":
+                            LoadDamages((10000 * DamagesDicInput), "");
+                            break;
+                        case "Deci":
+                            LoadDamages((100000 * DamagesDicInput), "");
+                            break;
+                        case "Absolute":
+                            LoadDamages((1000000 * DamagesDicInput), "");
+                            break;
+                    }
+                    break;
+                case "Roentgen":
+                    // Do the same as above, just with different inputs.
+                    // Thus, the function BeginCalculations first starts to convert to Sieverts, multiply it by its atom type, then return it here.
+                    switch (comboboxDose.GetItemText(comboboxDose.SelectedItem))
+                    {
+                        case "Micro":
+                            LoadDamages(DamagesDicInput, "");
+                            break;
+                        case "Milli":
+                            LoadDamages(1000 * DamagesDicInput, "");  
+                            break;
+                        case "Centi":
+                            LoadDamages((10000 * DamagesDicInput), "");
+                            break;
+                        case "Deci":
+                            LoadDamages((100000 * DamagesDicInput), "");
+                            break;
+                        case "Absolute":
+                            LoadDamages((1000000 * DamagesDicInput), "");
+                            break;
+                    }
+                    break;
+            }          
         }
 
         public void BeginCalulations()
